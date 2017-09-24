@@ -54,7 +54,7 @@ RUN set -ex \
 	\
 	&& gem update --system
 
-RUN gem install bundler
+RUN gem update bundler
 
 # install things globally, for great justice
 # and don't create ".bundle" in all our apps
