@@ -1,0 +1,16 @@
+#! /usr/bin/env sh
+set -ex
+
+TODAY=$(date +'%Y%m%d')
+
+docker build . -t ruby-trunk
+docker tag ruby-trunk mtsmfm/ruby-trunk:$TODAY
+docker push mtsmfm/ruby-trunk:$TODAY
+docker tag ruby-trunk mtsmfm/ruby-trunk:latest
+docker push mtsmfm/ruby-trunk:latest
+
+docker build . -t ruby-trunk-alpine -f Dockerfile-alpine
+docker tag ruby-trunk-alpine mtsmfm/ruby-trunk:$TODAY-alpine
+docker push mtsmfm/ruby-trunk:$TODAY-alpine
+docker tag ruby-trunk-alpine mtsmfm/ruby-trunk:alpine
+docker push mtsmfm/ruby-trunk:alpine
