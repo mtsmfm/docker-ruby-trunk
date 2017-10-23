@@ -22,11 +22,11 @@ RUN set -ex \
 	&& apt-get install -y --no-install-recommends $buildDeps \
 	&& rm -rf /var/lib/apt/lists/* \
 	\
-	&& wget -O ruby.tar.xz https://cache.ruby-lang.org/pub/ruby/snapshot.tar.xz \
+	&& wget -O ruby.tar.gz https://github.com/ruby/ruby/archive/trunk.tar.gz \
 	\
 	&& mkdir -p /usr/src/ruby \
-	&& tar -xJf ruby.tar.xz -C /usr/src/ruby --strip-components=1 \
-	&& rm ruby.tar.xz \
+	&& tar -xzf ruby.tar.gz -C /usr/src/ruby --strip-components=1 \
+	&& rm ruby.tar.gz \
 	\
 	&& cd /usr/src/ruby \
 	\
